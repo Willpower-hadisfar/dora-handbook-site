@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter One: Scope, Definitions, and Why DORA Exists</title>
+  <meta name="description" content="Read Chapter One of Digital Operational Resilience: Practitioner's Handbook by William Power.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="board-shell">
+    <div class="board-top">
+      <a class="tile-brand" href="index.html">DORA Handbook</a>
+      <nav class="tile-nav" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html#pillars">Pillars</a></li>
+          <li><a href="index.html#chapters">Chapters</a></li>
+          <li><a href="index.html#author">Author</a></li>
+        </ul>
+      </nav>
+      <a class="tile-action" href="index.html#get-the-book">Get early access</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article class="reader-article">
+      <h1>Scope, Definitions, and Why DORA Exists</h1>
+      <p>Start with the question most practitioner guides skip: why did the EU need a new regulation for this at all? Financial entities already had operational risk frameworks, capital requirements, and sector-specific rules going back decades. DORA&#x27;s recitals answer the question directly, and the answer explains almost everything that follows in this book.</p>
+      <h2>Why DORA exists</h2>
+      <p>The post-2008 wave of EU financial reform was built around financial resilience — capital, liquidity, prudential requirements. Digital operational resilience got comparatively little attention in that cycle, even though ICT risk is squarely a form of operational risk. By the time DORA was drafted, the EU&#x27;s Single Rulebook had rules touching digital resilience and ICT security scattered across sectoral legislation, but — in the regulation&#x27;s own words — not yet &quot;fully or consistently harmonised.&quot; The practical consequence was gaps and overlaps in important areas, incident reporting chief among them, producing inconsistent national implementations of what should have been a single standard.</p>
+      <p>There&#x27;s a second, more structural reason, and it&#x27;s the one that explains this book&#x27;s recurring argument that policy-exists isn&#x27;t the same as compliant. Earlier sectoral financial legislation &quot;often favoured a traditional quantitative approach&quot; to risk — capital requirements, numeric thresholds, things a balance sheet can verify. ICT resilience doesn&#x27;t reduce to a capital number. It needs qualitative rules covering protection, detection, recovery, and reporting — exactly the five Article 8 obligations Chapter 2 walked through, and exactly the kind of requirement that can&#x27;t be satisfied by holding more capital in reserve. DORA exists because operational resilience is a different kind of problem than capital adequacy, and the EU&#x27;s prior rulebook was still largely built for the capital-adequacy kind.</p>
+      <h2>Who&#x27;s actually in scope</h2>
+      <p>Article 2(1) lists the entities bound by the Regulation, and the list is long enough that it&#x27;s worth reading in full rather than assuming your own sector is obviously covered or obviously not:</p>
+      <p>credit institutions; payment institutions (including those exempted under the Payment Services Directive); account information service providers; electronic money institutions; investment firms; crypto-asset service providers and issuers of asset-referenced tokens; central securities depositories; central counterparties; trading venues; trade repositories; managers of alternative investment funds; management companies; data reporting service providers; insurance and reinsurance undertakings; insurance, reinsurance, and ancillary insurance intermediaries; institutions for occupational retirement provision; credit rating agencies; administrators of critical benchmarks; crowdfunding service providers; securitisation repositories — and, in its own category, <strong>ICT third-party service providers</strong>.</p>
+      <p>That last entry matters more than its place at the end of the list suggests. ICT third-party providers aren&#x27;t financial entities, and they don&#x27;t carry the full compliance burden the rest of this book has described — Chapters 2 through 6 are built for the twenty entity types above them. Their presence in Article 2(1) is what makes Chapter 7&#x27;s oversight regime possible: being named in scope here is the legal hook for the Lead Overseer relationship, not an invitation to run a full ICT risk management framework of their own.</p>
+      <h2>Who&#x27;s carved out, and why it&#x27;s not arbitrary</h2>
+      <p>Article 2(3) excludes: managers of certain alternative investment funds under the AIFMD&#x27;s own exemption, insurance and reinsurance undertakings falling under Solvency II&#x27;s exemption, occupational retirement schemes with 15 or fewer total members, persons exempted under MiFID II, insurance intermediaries that are microenterprises or small/medium enterprises, and post office giro institutions.</p>
+      <p>None of these exclusions is a loophole. Each one tracks either an entity too small to meaningfully pose the systemic ICT risk DORA is built to manage (the 15-member pension scheme, the microenterprise insurance intermediary), or an entity already exempted from the parent directive DORA&#x27;s scope is built to track (AIFMD, Solvency II, MiFID II). The proportionality thread running through Chapters 2 and 4&#x27;s microenterprise carve-outs starts here, at the boundary of who&#x27;s covered at all.</p>
+      <h2>The two definitions everything else depends on</h2>
+      <p>Article 3 defines dozens of terms, but two carry the whole rest of this book:</p>
+      <p><strong>Digital operational resilience</strong> (Article 3(1)): &quot;the ability of a financial entity to build, assure and review its operational integrity and reliability,&quot; covering the ICT capabilities needed to secure the network and information systems supporting continued service delivery — including <em>during</em> disruptions, not just in their absence. Read that last clause carefully: the definition itself assumes disruption happens and asks whether service continues through it, the same &quot;survivable, not just preventable&quot; framing Chapter 2&#x27;s impact-tolerance discussion already assumed without spelling out where it came from.</p>
+      <p><strong>ICT-related incident</strong> (Article 3(8)): &quot;a single event or a series of linked events unplanned by the financial entity&quot; that compromises network and information system security and adversely affects availability, authenticity, integrity, or confidentiality of data or services. Notice what&#x27;s absent: no severity threshold. Severity — what makes an incident <em>major</em> rather than just an incident — is Article 18&#x27;s job (Chapter 3), not this definition&#x27;s. Article 3(8) draws the outer boundary of what counts as an incident at all; Article 18 decides which incidents inside that boundary actually trigger mandatory reporting.</p>
+      <h2>A worked example: in scope, confirmed</h2>
+      <p>Worth confirming explicitly, since every other chapter in this book has assumed it: MCC Crypto falls under Article 2(1)(f) — crypto-asset service providers — and the specific hook is its authorisation under the Markets in Crypto-Assets Regulation, Regulation (EU) 2023/1114. That is the first named fact the rest of this book leans on. MCC is a roughly 40-person Dublin firm, founded in 2021, granted authorisation in early 2025, running a custody-first service — client fund custody on a proprietary platform, a fiat/crypto on-ramp, and a spot execution venue. The detail that matters later: its Amsterdam branch passports that authorisation across the EU under MiCA&#x27;s own regime, which is the cross-border footprint that puts it on the Central Bank of Ireland&#x27;s TLPT radar in Chapter 4 and keeps its reporting anchored to a single competent authority in Chapter 3.</p>
+      <p>Note what this passage is <em>not</em> doing: it is not finding a gap. It is establishing that MCC is unambiguously inside the regime — the question every other chapter then treats as settled. The first question a crypto firm&#x27;s board should ask isn&#x27;t &quot;how do we comply with DORA&#x27;s ICT risk framework&quot; — it&#x27;s &quot;have we confirmed our authorisation actually brings us inside Article 2(1)(f) in the first place.&quot; For MCC, the answer is yes, and the rest of this book can say <em>how</em> rather than <em>whether</em>.</p>
+      <h2>What&#x27;s genuinely unresolved here</h2>
+      <p>- <strong>How the timing between DORA&#x27;s own application date and the separate authorisation regimes referenced in Article 2(1)(f) actually played out in practice</strong> for crypto-asset service providers specifically — this book hasn&#x27;t verified that sequencing against primary text and shouldn&#x27;t be read as having resolved it.
+- <strong>Where the practical line sits for insurance intermediaries near the microenterprise/SME threshold</strong> — Article 2(3)(e)&#x27;s exclusion is a real cliff-edge, and a firm growing past that threshold needs a concrete trigger for when DORA obligations start applying, which this chapter&#x27;s primary-text pass didn&#x27;t surface.</p>
+      <h2>Related material</h2>
+      <p>Chapter 7&#x27;s oversight regime is the practical consequence of Article 2(1)(u)&#x27;s inclusion of ICT third-party providers in scope; Chapter 2&#x27;s impact-tolerance discussion is where Article 3(1)&#x27;s &quot;resilience through disruption, not just prevention of it&quot; framing first showed up without its source being named.</p>
+      <p><a class="btn-primary" href="index.html#get-the-book">Request the complete nine-chapter handbook</a></p>
+    </article>
+  </main>
+</body>
+</html>

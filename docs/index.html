@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Operational Resilience — Practitioner’s Handbook</title>
+  <meta name="description" content="An engineering and GRC practitioner’s field guide to EU Regulation 2022/2554 (DORA) for CTOs, architects, and financial institutions. By William Power.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Hero: Two-by-two board -->
+  <header id="top" class="board-shell">
+    <div class="board-top">
+      <a class="tile-brand" href="#top">DORA Handbook</a>
+      <nav class="tile-nav" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#pillars">Pillars</a></li>
+          <li><a href="#explorer">Clocks</a></li>
+          <li><a href="#chapters">Chapters</a></li>
+          <li><a href="#author">Author</a></li>
+        </ul>
+      </nav>
+      <a class="tile-action" href="chapter-1.html">Read Chapter One</a>
+    </div>
+
+    <div class="board-grid">
+      <div class="tile-title">
+        <h1 class="hero-h1">DORA.<br>Built to hold.</h1>
+      </div>
+
+      <div class="tile-photo shutter-frame">
+        <img class="photo-bw" src="assets/img/seat-of-the-european-central-bank-and.jpg" width="1920" height="1008" alt="Seat of the European Central Bank and Frankfurt financial skyline at dawn">
+      </div>
+
+      <div class="tile-photo">
+        <img class="photo-bw" src="assets/img/frankfurt-skyline-16259801511.jpg" width="1920" height="1440" alt="European financial district towers in Frankfurt">
+      </div>
+
+      <div class="tile-split">
+        <div class="tile-dark">
+          <p class="tile-statement">EU Regulation 2022/2554 is not a policy binder. It is an engineering and telemetry mandate.</p>
+          <a class="tile-cta-link" href="#get-the-book">Get early access</a>
+        </div>
+
+        <div class="tile-crimson">
+          <p class="tile-statement">Nine practitioner chapters from ICT risk governance to TLPT and third-party exit drills.</p>
+          <a class="btn-tile-dark" href="chapter-1.html">Read Chapter One</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Intro — Paper field -->
+    <section class="sec-intro" aria-labelledby="intro-head">
+      <div class="wrap grid-12">
+        <div class="intro-left">
+          <div>
+            <h2 id="intro-head" class="sec-head reveal">Compliance is not resilience</h2>
+            <p class="intro-lead reveal" data-delay="70">
+              Under DORA, the regulatory clock starts at technical detection, not when General Counsel convenes.
+            </p>
+          </div>
+          <p class="intro-body reveal" data-delay="130">
+            Most financial institutions treat Regulation (EU) 2022/2554 as a legal documentation exercise. Supervisors audit the opposite: whether your telemetry classifies a major incident inside four hours, whether your Register of Information maps every fourth-party cloud dependency, and whether your live failover actually holds under stress. This handbook translates every chapter of DORA into concrete architecture, telemetry, and CI/CD controls.
+          </p>
+        </div>
+
+        <figure class="intro-right reveal" data-delay="160" style="margin: 0;">
+          <img class="photo-bw" src="assets/img/frankfurt-skyline-pano-sudwest-20130618.jpg" width="1920" height="637" alt="Panoramic view of European banking towers across the Frankfurt skyline" loading="lazy" decoding="async">
+          <figcaption class="caption">European financial infrastructure under unified ICT supervision since January 2025.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Section 2: How it works — Many into one -->
+    <section id="pillars" class="sec-pillars" aria-labelledby="pillars-head">
+      <div class="wrap grid-12">
+        <div class="pillars-intro">
+          <h2 id="pillars-head" class="sec-head reveal">From sprawl to proof</h2>
+        </div>
+        <p class="pillars-note reveal" data-delay="60">
+          DORA replaces fragmented national banking circulars with one directly applicable European rulebook across twenty-one categories of financial entities and their critical ICT providers.
+        </p>
+
+        <div class="pillars-svg-wrap reveal" data-delay="100" aria-hidden="true">
+          <svg class="pillars-svg" viewBox="0 0 1200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Scattered disorder (left) -->
+            <rect x="20" y="24" width="12" height="12" fill="#555555"/>
+            <rect x="64" y="68" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="38" y="138" width="12" height="12" fill="#555555"/>
+            <rect x="112" y="34" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="148" y="112" width="12" height="12" fill="#555555"/>
+            <rect x="92" y="176" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="184" y="54" width="12" height="12" fill="#555555"/>
+            <rect x="210" y="156" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="246" y="88" width="12" height="12" fill="#555555"/>
+            <rect x="282" y="36" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="296" y="168" width="12" height="12" fill="#555555"/>
+            <rect x="334" y="118" width="12" height="12" fill="#8c8c8c"/>
+            <!-- Compressed horizontal ribbon (middle) -->
+            <rect x="410" y="92" width="12" height="12" fill="#efefef"/>
+            <rect x="434" y="110" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="458" y="92" width="12" height="12" fill="#efefef"/>
+            <rect x="482" y="110" width="12" height="12" fill="#efefef"/>
+            <rect x="506" y="92" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="530" y="110" width="12" height="12" fill="#efefef"/>
+            <rect x="554" y="92" width="12" height="12" fill="#efefef"/>
+            <rect x="578" y="110" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="602" y="92" width="12" height="12" fill="#efefef"/>
+            <rect x="626" y="110" width="12" height="12" fill="#efefef"/>
+            <rect x="650" y="92" width="12" height="12" fill="#efefef"/>
+            <rect x="674" y="110" width="12" height="12" fill="#8c8c8c"/>
+            <rect x="698" y="92" width="12" height="12" fill="#efefef"/>
+            <rect x="722" y="110" width="12" height="12" fill="#efefef"/>
+            <rect x="746" y="92" width="12" height="12" fill="#efefef"/>
+            <!-- Ordered crimson grid (right) -->
+            <rect x="830" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="870" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="910" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="950" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="990" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="1030" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="1070" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="1110" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="1150" y="54" width="12" height="12" fill="#b11226"/>
+            <rect x="830" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="870" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="910" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="950" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="990" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="1030" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="1070" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="1110" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="1150" y="102" width="12" height="12" fill="#b11226"/>
+            <rect x="830" y="150" width="12" height="12" fill="#b11226"/>
+            <rect x="870" y="150" width="12" height="12" fill="#b11226"/>
+            <rect x="910" y="150" width="12" height="12" fill="#b11226"/>
+            <rect x="950" y="150" width="12" height="12" fill="#b11226"/>
+            <rect x="990" y="150" width="12" height="12" fill="#b11226"/>
+            <rect x="1030" y="150" width="12" height="12" fill="#b11226"/>
+            <rect x="1070" y="150" width="12" height="12" fill="#b11226"/>
+            <rect x="1110" y="150" width="12" height="12" fill="#b11226"/>
+            <rect x="1150" y="150" width="12" height="12" fill="#b11226"/>
+          </svg>
+        </div>
+
+        <div class="pillars-cols">
+          <div class="pillar-col reveal" data-delay="0">
+            <h3>Inventory</h3>
+            <p>Map every critical or important function, underlying microservice, database, and third-party cloud dependency into one authoritative graph.</p>
+          </div>
+          <div class="pillar-col reveal" data-delay="80">
+            <h3>Instrument</h3>
+            <p>Wire incident classification, RTO/RPO assertions, and immutable audit trails directly into runtime telemetry and CI/CD gates.</p>
+          </div>
+          <div class="pillar-col reveal" data-delay="160">
+            <h3>Prove</h3>
+            <p>Run scheduled failover drills, Threat-Led Penetration Tests, and exit rehearsals that produce regulator-ready evidence automatically.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Showcase — Square plate + Live DORA Pillar & Clock Explorer -->
+    <section id="explorer" class="sec-showcase" aria-labelledby="explorer-head">
+      <div class="wrap grid-12">
+        <div class="plate-left reveal">
+          <img class="photo-bw" src="assets/img/frankfurt-skyline-16259801511.jpg" width="1920" height="1440" style="object-position: 62% center;" alt="High-contrast architectural study of Frankfurt banking towers" loading="lazy" decoding="async">
+          <p class="caption-dark">Select a DORA pillar to inspect its statutory clock and engineering control.</p>
+        </div>
+
+        <div class="plate-right">
+          <h2 id="explorer-head" class="sec-head reveal">Inspect the statutory clocks</h2>
+
+          <div class="dora-explorer reveal" data-delay="80" data-ui>
+            <div class="tab-row" role="group" aria-label="Choose a DORA pillar">
+              <button type="button" class="dora-tab" data-pillar="risk" aria-pressed="true">ICT Risk</button>
+              <button type="button" class="dora-tab" data-pillar="incidents" aria-pressed="false">Incident Clocks</button>
+              <button type="button" class="dora-tab" data-pillar="testing" aria-pressed="false">Testing &amp; TLPT</button>
+              <button type="button" class="dora-tab" data-pillar="thirdParty" aria-pressed="false">Third-Party &amp; RoI</button>
+            </div>
+
+            <p class="explorer-title" id="dora-title">ICT Risk Management Framework</p>
+            <p class="explorer-desc" id="dora-desc">Board-owned governance backed by living asset inventories, RTO/RPO targets, immutable audit trails, and architectural separation of critical or important functions.</p>
+
+            <div class="explorer-meta">
+              <div class="meta-cell">
+                <span class="meta-label">Regulation Scope</span>
+                <span class="meta-val" id="dora-article">Articles 5 to 16</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">Statutory Cadence</span>
+                <span class="meta-val" id="dora-clock">Annual review + post-incident</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">Engineering Control</span>
+                <span class="meta-val" id="dora-control">Continuous CMDB + IaC drift checks</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">Handbook Section</span>
+                <span class="meta-val" id="dora-chapter">ICT Risk Governance</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="plate-actions reveal" data-delay="140">
+            <a class="btn-primary" href="chapter-1.html">Read Chapter One</a>
+            <a class="btn-secondary" href="#get-the-book">Request full manuscript</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: List — Nine Chapters -->
+    <section id="chapters" class="sec-chapters" aria-labelledby="chapters-head">
+      <div class="wrap grid-12">
+        <div class="chapters-head">
+          <h2 id="chapters-head" class="sec-head reveal">Nine chapters from scope to enforcement</h2>
+        </div>
+
+        <div class="chapters-photo reveal" data-delay="60">
+          <img class="photo-bw" src="assets/img/seat-of-the-european-central-bank-and.jpg" width="1920" height="1008" alt="European Central Bank headquarters in Frankfurt" loading="lazy" decoding="async">
+          <p class="caption">Complete nine-chapter practitioner draft covering EU Regulation 2022/2554 and RTS/ITS obligations.</p>
+        </div>
+
+        <div class="chapters-col reveal" data-delay="100">
+          <ul class="chapter-list">
+            <li class="chapter-row">
+              <span class="ch-art">Art. 1–4</span>
+              <span class="ch-name">Scope, Definitions, and Why DORA Exists</span>
+              <span class="ch-meta"><a class="ch-link" href="chapter-1.html">Read free</a></span>
+            </li>
+            <li class="chapter-row">
+              <span class="ch-art">Art. 5–16</span>
+              <span class="ch-name">The ICT Risk Management Framework</span>
+              <span class="ch-meta">Governance, not a document</span>
+            </li>
+            <li class="chapter-row">
+              <span class="ch-art">Art. 17–23</span>
+              <span class="ch-name">ICT Incident Classification and Reporting</span>
+              <span class="ch-meta">4h, 72h, and 1-month clocks</span>
+            </li>
+
+            <li class="chapter-row group-break">
+              <span class="ch-art">Art. 24–27</span>
+              <span class="ch-name">Digital Operational Resilience Testing &amp; TLPT</span>
+              <span class="ch-meta">TIBER-EU and live drills</span>
+            </li>
+            <li class="chapter-row">
+              <span class="ch-art">Art. 28–30</span>
+              <span class="ch-name">ICT Third-Party Risk &amp; Register of Information</span>
+              <span class="ch-meta">Concentration and exit plans</span>
+            </li>
+            <li class="chapter-row">
+              <span class="ch-art">Art. 45</span>
+              <span class="ch-name">Information Sharing</span>
+              <span class="ch-meta">Trusted cyber threat exchange</span>
+            </li>
+
+            <li class="chapter-row group-break">
+              <span class="ch-art">Art. 31–44</span>
+              <span class="ch-name">Oversight of Critical ICT Third-Party Providers</span>
+              <span class="ch-meta">Lead Overseer powers</span>
+            </li>
+            <li class="chapter-row">
+              <span class="ch-art">Art. 46–56</span>
+              <span class="ch-name">Enforcement, Fines, and Supervisory Practice</span>
+              <span class="ch-meta">Remediation and penalties</span>
+            </li>
+            <li class="chapter-row">
+              <span class="ch-art">Closing</span>
+              <span class="ch-name">What DORA Assumes About Your Organization</span>
+              <span class="ch-meta">Closing architectural reality</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Proof — Plain names in columns -->
+    <section id="standards" class="sec-proof" aria-labelledby="proof-head">
+      <div class="wrap grid-12">
+        <div class="proof-left">
+          <h2 id="proof-head" class="sec-head reveal">Built on primary texts</h2>
+        </div>
+
+        <div class="proof-cols reveal" data-delay="80">
+          <ul class="proof-group">
+            <li>EU Legislation</li>
+            <li>Regulation (EU) 2022/2554</li>
+            <li>Directive (EU) 2022/2556</li>
+            <li>NIS2 Interaction</li>
+            <li>GDPR &amp; Swiss FADP</li>
+          </ul>
+          <ul class="proof-group">
+            <li>Supervisory Bodies</li>
+            <li>EBA (Banking)</li>
+            <li>ESMA (Markets)</li>
+            <li>EIOPA (Insurance)</li>
+            <li>Joint Oversight Forum</li>
+          </ul>
+          <ul class="proof-group">
+            <li>Engineering Standards</li>
+            <li>TIBER-EU Framework</li>
+            <li>SABSA Risk Architecture</li>
+            <li>Register of Information</li>
+            <li>Audit-at-the-Glass CI</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: About — Author -->
+    <section id="author" class="sec-about" aria-labelledby="about-head">
+      <div class="wrap grid-12">
+        <div class="about-left reveal">
+          <div class="about-tile">
+            <p>Principal architecture meets formal GRC.</p>
+          </div>
+          <div class="about-facts">
+            <strong>William Power</strong> · Founder, Powerworks Global · Dublin, Ireland · Leanpub &amp; Print Handbook
+          </div>
+        </div>
+
+        <div class="about-right reveal" data-delay="100">
+          <h2 id="about-head" class="sec-head">About the author</h2>
+          <p>
+            William Power is a Principal Software Architect, Technical Auditor, and founder of Powerworks Global. Combining hands-on cloud, Kubernetes, and event-driven systems architecture with formal Governance, Risk, and Compliance training, he advises European financial and healthcare institutions on building systems that withstand regulatory scrutiny at the code and telemetry boundary.
+          </p>
+          <p>
+            This handbook is written for the engineers and architects who have to make DORA real in production, not just pass a document review.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: CTA — Inverted to paper -->
+    <section id="get-the-book" class="sec-cta" aria-labelledby="cta-head">
+      <div class="wrap">
+        <h2 id="cta-head" class="cta-head reveal">Audit the glass.<br>Not a binder.</h2>
+      </div>
+
+      <div class="wrap grid-12 cta-bottom">
+        <p class="cta-copy reveal" data-delay="70">
+          Request early access to the nine-chapter DORA Practitioner’s Handbook, or open Chapter One now.
+        </p>
+
+        <form id="dora-access-form" class="cta-form reveal" data-delay="130" novalidate>
+          <label for="dora-access-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Work or personal email</label>
+          <input id="dora-access-email" class="cta-input" type="email" name="email" placeholder="you@institution.eu" autocomplete="email" required>
+          <button type="submit" class="btn-primary">Get early access</button>
+          <p id="dora-access-status" class="cta-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Section 8: Footer -->
+  <footer class="site-footer">
+    <div class="wrap grid-12 footer-top">
+      <div class="footer-invite reveal">
+        <h2>Read Chapter One free today</h2>
+        <a class="btn-primary" href="chapter-1.html">Read Chapter One</a>
+      </div>
+
+      <ul class="footer-links reveal" data-delay="90">
+        <li><a href="chapter-1.html">Chapter One (Free)</a></li>
+        <li><a href="#chapters">All Nine Chapters</a></li>
+        <li><a href="https://willpower-hadisfar.github.io/elemental-architect-site/">The Elemental Architect</a></li>
+        <li><a href="#top">Back to top</a></li>
+      </ul>
+    </div>
+
+    <div class="wrap footer-credits">
+      <span>© 2026 William Power · Powerworks Global</span>
+      <span>
+        Pictures:
+        <a href="https://commons.wikimedia.org/w/index.php?curid=41624392">“Seat of the European Central Bank and Frankfurt Skyline at dawn”</a> by DXR (CC BY-SA 4.0);
+        <a href="https://commons.wikimedia.org/w/index.php?curid=38246596">“Frankfurt Skyline”</a> by Kiefer (CC BY-SA 2.0);
+        <a href="https://commons.wikimedia.org/w/index.php?curid=26807270">“Frankfurt Skyline Pano”</a> by Epizentrum (CC BY-SA 3.0), via Wikimedia Commons.
+      </span>
+    </div>
+
+    <p class="footer-wordmark" aria-hidden="true">OPERATIONAL RESILIENCE</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
